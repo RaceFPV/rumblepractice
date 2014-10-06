@@ -1,0 +1,17 @@
+<p>Inventory</p>
+
+<table border="1">
+  <tr>
+    <th>name</th>
+    <th>value</th>
+    <th>weight</th>
+    <th colspan="2"></th>
+  </tr>
+    <% @inventories.each do |inventory| %>
+      <tr>
+        <td><%= inventory.name %></td>
+        <td><%= inventory.value %></td>
+        <td><%= inventory.weight %></td>
+      </tr>
+    <% end %>
+</table>
