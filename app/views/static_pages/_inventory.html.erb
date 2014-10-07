@@ -7,11 +7,11 @@
     <th>weight</th>
     <th colspan="2"></th>
   </tr>
-    <% @inventories.each do |inventory| %>
+    <% @inventories.each do |item| %>
       <tr>
-        <td><%= inventory.name %></td>
-        <td><%= inventory.value %></td>
-        <td><%= inventory.weight %></td>
+        <td><%= item.itemName %></td>
+        <td><%= item.value %></td>
+        <td><%= item.weight %></td>
       </tr>
     <% end %>
 </table>

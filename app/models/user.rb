@@ -4,14 +4,14 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :orders, dependent: :destroy
-  has_many :inventories
+  has_one :inventory
   before_create :default_status, :default_items
 
-
   def default_items
-    Inventory.create(name:"wooden sword", value:10, weight: 5)
-    Inventory.create(name:"torch", value:5, weight: 5)
-    Inventory.create(name:"bread", value:5, weight: 1)
+   @inventory = Inventory.create(user_id:self.id)
+   Item.create(itemName:"wooden sword",value:10,weight:15,inventory_id:@inventory.id)
+   Item.create(itemName:"bread",value:5,weight:1,inventory_id:@inventory.id)
+   Item.create(itemName:"toch",value:10,weight:15,inventory_id:@inventory.id)
   end
 
   def default_status

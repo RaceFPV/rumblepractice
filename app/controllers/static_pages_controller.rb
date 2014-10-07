@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def index
-    @inventories = Inventory.all
+    @inventories = Item.all
   end
 
   def about
