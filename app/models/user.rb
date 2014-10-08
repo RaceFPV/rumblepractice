@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :orders, dependent: :destroy
   has_one :inventory
-  before_create :default_status, :default_items
+  before_create :default_status
+  after_create :default_items
 
   def default_items
    @inventory = Inventory.create(user_id:self.id)
